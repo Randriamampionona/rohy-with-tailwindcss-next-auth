@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-[#0f0f10] text-[#fafafa];
+	}
+
+	p {
+		@apply text-[#cdc6c9];
+	}
+}
+
+@layer components {
+	.auto-spacing {
+		@apply max-w-[85%] m-auto;
+	}
+
+	.btn {
+		@apply flex items-center justify-center space-x-[0.5rem] bg-[#b3004a] text-[#fafafa] px-[1rem] py-[0.5rem] rounded-sm hover:opacity-[0.9] active:scale-[0.95];
+	}
+
+	.outlineBtn {
+		@apply flex items-center justify-center space-x-[0.5rem] bg-transparent text-[#b3004a] border border-[#b3004a] px-[1rem] py-[0.5rem] rounded-sm hover:bg-[#b3004a] hover:text-[#fafafa] active:scale-[0.95];
+	}
+
+	.iconBtn {
+		@apply flex items-center justify-center border border-[#cdc6c9] rounded-full p-2 cursor-pointer hover:border-[#b3004a];
+	}
+}
+
+html,
+body {
+	font-family: "Poppins", sans-serif;
+}
+
+:root {
+	--primary-color: #b3004a;
+	--dark-color: #0f0f10;
+	--white-color: #fafafa;
+	--light-color: #cdc6c9;
+	--swiper-theme-color: var(--primary-color) !important;
+}
