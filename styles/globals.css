@@ -4,11 +4,11 @@
 
 @layer base {
 	body {
-		@apply bg-[#0f0f10] text-[#fafafa];
+		@apply bg-darkColor text-whiteColor;
 	}
 
 	p {
-		@apply text-[#cdc6c9];
+		@apply text-whiteColor;
 	}
 }
 
@@ -18,27 +18,46 @@
 	}
 
 	.btn {
-		@apply flex items-center justify-center space-x-[0.5rem] bg-[#b3004a] text-[#fafafa] px-[1rem] py-[0.5rem] rounded-sm hover:opacity-[0.9] active:scale-[0.95];
+		@apply flex items-center justify-center space-x-[0.5rem] bg-primaryColor text-whiteColor px-[1rem] py-[0.5rem] rounded-sm hover:opacity-[0.9] active:scale-[0.95];
 	}
 
 	.outlineBtn {
-		@apply flex items-center justify-center space-x-[0.5rem] bg-transparent text-[#b3004a] border border-[#b3004a] px-[1rem] py-[0.5rem] rounded-sm hover:bg-[#b3004a] hover:text-[#fafafa] active:scale-[0.95];
+		@apply flex items-center justify-center space-x-[0.5rem] bg-transparent text-primaryColor border border-primaryColor px-[1rem] py-[0.5rem] rounded-sm hover:bg-primaryColor hover:text-whiteColor active:scale-[0.95];
 	}
 
 	.iconBtn {
-		@apply flex items-center justify-center border border-[#cdc6c9] rounded-full p-2 cursor-pointer hover:border-[#b3004a];
+		@apply flex items-center justify-center border border-lightColor rounded-full p-2 cursor-pointer hover:border-primaryColor;
 	}
+}
+
+:root {
+	--swiper-theme-color: var(--primary-color) !important;
+}
+
+::-webkit-scrollbar {
+	background: hsl(240, 2%, 10%);
+	width: 0.75rem;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(131, 2, 56, 0.527);
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 3px var(--dark-color);
+	border: 2.5px solid hsl(240, 2%, 10%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	border-radius: 5px;
+	box-shadow: inset 0px 0px 3px var(--dark-color);
+	border: 2.5px solid hsl(240, 2%, 10%);
+	background: hsla(335, 100%, 35%, 0.712);
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
 }
 
 html,
 body {
 	font-family: "Poppins", sans-serif;
-}
-
-:root {
-	--primary-color: #b3004a;
-	--dark-color: #0f0f10;
-	--white-color: #fafafa;
-	--light-color: #cdc6c9;
-	--swiper-theme-color: var(--primary-color) !important;
 }

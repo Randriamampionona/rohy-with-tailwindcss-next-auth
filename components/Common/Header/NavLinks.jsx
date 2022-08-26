@@ -6,7 +6,7 @@ const NavLinks = ({ navLinksData }) => {
 			{navLinksData.map((link) => (
 				<li
 					key={link.slug}
-					className="text-[#fafafa] hover:text-[#b3004a]">
+					className="text-whiteColor hover:text-primaryColor">
 					<Link href={link.slug} passHref>
 						<a>{link.text}</a>
 					</Link>

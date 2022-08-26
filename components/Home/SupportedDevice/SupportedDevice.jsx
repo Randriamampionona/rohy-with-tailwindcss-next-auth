@@ -5,7 +5,7 @@ const SupportedDevice = () => {
 	return (
 		<section className="w-full h-auto py-[4rem]">
 			<div className="flex flex-col items-center auto-spacing space-y-[1rem]">
-				<h1 className="text-center text-[#fafafa] font-[600] text-2xl uppercase">
+				<h1 className="text-center text-whiteColor font-[600] text-2xl uppercase">
 					Disponible sur tout support
 				</h1>
 				<p className="text-center sm:w-[80%]">
