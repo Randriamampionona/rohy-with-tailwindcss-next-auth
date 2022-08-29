@@ -38,7 +38,14 @@ export default function OfferPage() {
 	};
 
 	const getDocHandler = async () => {
-		console.log(db);
+		const docRef = doc(db, "users", "PHMCyy4ytna5u781xEA4");
+
+		try {
+			const docSnap = await getDoc(docRef);
+			console.log(docSnap.data());
+		} catch (error) {
+			console.log(error);
+		}
 	};
 
 	return (
