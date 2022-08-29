@@ -13,7 +13,7 @@ const UserSection = () => {
 		signOut({ redirect: false, callbackUrl: "/auth/signin" });
 
 	return (
-		<div className="hidden md:flex md:items-center md:space-x-4">
+		<div className="hidden md:flex items-center space-x-4">
 			{!session ? (
 				<button className="btn" onClick={signupHandler}>
 					<span>S&apos;inscrir</span>

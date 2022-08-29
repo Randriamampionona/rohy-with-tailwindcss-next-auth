@@ -2,11 +2,11 @@ import Link from "next/link";
 
 const NavLinks = ({ navLinksData }) => {
 	return (
-		<ul className="hidden sm:flex items-center space-x-[3.5rem]">
+		<ul className="hidden md:flex items-center space-x-[3.5rem]">
 			{navLinksData.map((link) => (
 				<li
 					key={link.slug}
-					className="text-whiteColor hover:text-primaryColor">
+					className="relative text-whiteColor hover:text-primaryColor before:contents-[''] transition-colors ease-in navLink">
 					<Link href={link.slug} passHref>
 						<a>{link.text}</a>
 					</Link>

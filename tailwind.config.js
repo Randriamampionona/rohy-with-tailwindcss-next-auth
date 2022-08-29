@@ -12,6 +12,10 @@ module.exports = {
 				whiteColor: "hsl(0, 0%, 98%)",
 				lightColor: "hsl(334, 7%, 79%)",
 			},
+			height: {
+				navbarHeight: "3.5rem",
+				customScreen: "calc(100vh - 3.5rem)",
+			},
 		},
 	},
 	plugins: [],

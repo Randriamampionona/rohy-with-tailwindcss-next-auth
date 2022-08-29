@@ -1,10 +1,121 @@
+import { useState } from "react";
 import { getSession } from "next-auth/react";
-import { SignUp } from "./../../components/Authorization";
+import { FaUserCircle } from "react-icons/fa";
+import { FiLock, FiMail, FiEye, FiEyeOff } from "react-icons/fi";
+import { FcGoogle } from "react-icons/fc";
+import Link from "next/link";
 
-const signup = () => {
+const SignupPage = () => {
+	const [inputType, setInputType] = useState("password");
+	const [email, setEmail] = useState("");
+	const [password, setPassword] = useState("");
+
 	return (
 		<main>
-			<SignUp />
+			<section className="w-full h-customScreen">
+				<div className="auto-spacing h-full flex items-center">
+					<div className="flex flex-col items-center space-y-4 w-2/3 sm:w-1/2 md:w-2/5 lg:w-1/3 xl:w-1/4 m-auto ">
+						<FaUserCircle className="text-7xl mb-8" />
+
+						<form className="w-full flex flex-col items-center gap-1">
+							{/* input email */}
+							<div className="w-full">
+								<label
+									htmlFor="email"
+									className="text-xs text-lightColor mb-2">
+									Email{" "}
+									<sup className="text-red-600 text-xs">
+										*
+									</sup>
+								</label>
+								<div className="flex items-center space-x-2 bg-whiteColor rounded-sm py-[0.7rem] px-[0.5rem]">
+									<FiMail className="flex-shrink-0 text-lightColor" />
+									<input
+										type="email"
+										name="email"
+										id="email"
+										placeholder="Email address"
+										required
+										className="bg-transparent flex-grow outline-none border-none text-sm placeholder:text-lightColor text-darkColor"
+									/>
+								</div>
+							</div>
+
+							{/* input password */}
+							<div className="w-full">
+								<label
+									htmlFor="password"
+									className="text-xs text-lightColor mb-2">
+									Password{" "}
+									<sup className="text-red-600 text-xs">
+										*
+									</sup>
+								</label>
+								<div className="flex items-center space-x-2 bg-whiteColor rounded-sm py-[0.7rem] px-[0.5rem]">
+									<FiLock className="flex-shrink-0 text-lightColor" />
+									<input
+										type={inputType}
+										name="password"
+										id="password"
+										placeholder="Password"
+										required
+										value={password}
+										onChange={(e) =>
+											setPassword(e.target.value)
+										}
+										className="bg-transparent flex-grow outline-none border-none text-sm placeholder:text-lightColor text-darkColor"
+									/>
+									<>
+										{password.trim() &&
+											(inputType === "password" ? (
+												<FiEye
+													className="flex-shrink-0 text-darkColor"
+													onClick={() =>
+														setInputType("text")
+													}
+												/>
+											) : (
+												<FiEyeOff
+													className="flex-shrink-0 text-darkColor"
+													onClick={() =>
+														setInputType("password")
+													}
+												/>
+											))}
+									</>
+								</div>
+							</div>
+
+							<button className="btn w-full mt-2">
+								<span>Signup</span>
+								<FaUserCircle className="" />
+							</button>
+						</form>
+
+						<div className="flex items-center justify-between w-full">
+							<hr className="flex-1 border-lightColor" />
+							<span className="flex-shrink-0 text-center text-xs text-lightColor px-2">
+								or continue with google
+							</span>
+							<hr className="flex-1 border-lightColor" />
+						</div>
+
+						<button className="outlineBtn w-full">
+							<FcGoogle />
+							<span className="text-sm">Signup with google</span>
+						</button>
+
+						<p className="text-center text-sm text-whiteColor mt-4">
+							Already have an account?{" "}
+							<Link href="/auth/signin" passHref>
+								<a className="text-primaryColor hover:underline">
+									signin
+								</a>
+							</Link>
+						</p>
+					</div>
+				</div>
+			</section>
 		</main>
 	);
 };
@@ -28,4 +139,4 @@ export const getServerSideProps = async ({ req, res }) => {
 	};
 };
 
-export default signup;
+export default SignupPage;

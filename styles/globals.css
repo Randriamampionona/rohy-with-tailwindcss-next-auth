@@ -22,11 +22,15 @@
 	}
 
 	.outlineBtn {
-		@apply flex items-center justify-center space-x-[0.5rem] bg-transparent text-primaryColor border border-primaryColor px-[1rem] py-[0.5rem] rounded-sm hover:bg-primaryColor hover:text-whiteColor active:scale-[0.95];
+		@apply flex items-center justify-center space-x-[0.5rem] bg-transparent text-whiteColor border border-primaryColor px-[1rem] py-[0.5rem] rounded-sm hover:bg-primaryColor hover:text-whiteColor active:scale-[0.95];
 	}
 
 	.iconBtn {
 		@apply flex items-center justify-center border border-lightColor rounded-full p-2 cursor-pointer hover:border-primaryColor;
+	}
+
+	.navLink {
+		@apply before:absolute before:w-0 before:h-[0.125rem] before:bg-primaryColor before:bottom-[-0.3125rem] before:left-[0] before:transition-all ease-in hover:before:w-1/2 hover:before:left-0;
 	}
 }
 
@@ -55,6 +59,12 @@
 
 ::-webkit-scrollbar-track {
 	background: transparent;
+}
+
+@media screen and (max-width: 768px) {
+	::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 html,
