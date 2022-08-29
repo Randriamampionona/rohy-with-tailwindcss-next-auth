@@ -1,30 +1,14 @@
 import { useState } from "react";
-import { getSession } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { FaSignInAlt, FaUserCircle } from "react-icons/fa";
 import { FiLock, FiMail, FiEye, FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
 import Link from "next/link";
 
-import { db } from "../../firebase.config";
-import { addDoc, collection } from "firebase/firestore";
-
 const SigninPage = () => {
 	const [inputType, setInputType] = useState("password");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-
-	const signinHandler = async (e) => {
-		e.preventDefault();
-		const docRef = await addDoc(collection(db, "testUser"), {
-			email,
-			password,
-		});
-
-		console.log(docRef);
-
-		setEmail("");
-		setPassword("");
-	};
 
 	return (
 		<main>
@@ -33,9 +17,7 @@ const SigninPage = () => {
 					<div className="flex flex-col items-center space-y-4 w-2/3 sm:w-1/2 md:w-2/5 lg:w-1/3 xl:w-1/4 m-auto ">
 						<FaUserCircle className="text-7xl mb-8" />
 
-						<form
-							className="w-full flex flex-col items-center gap-1"
-							onSubmit={signinHandler}>
+						<form className="w-full flex flex-col items-center gap-1">
 							{/* input email */}
 							<div className="w-full">
 								<label
@@ -54,6 +36,10 @@ const SigninPage = () => {
 										id="email"
 										placeholder="Email address"
 										required
+										value={email}
+										onChange={(e) =>
+											setEmail(e.target.value)
+										}
 										className="bg-transparent flex-grow outline-none border-none text-sm placeholder:text-lightColor text-darkColor"
 									/>
 								</div>
@@ -118,7 +104,9 @@ const SigninPage = () => {
 							<hr className="flex-1 border-lightColor" />
 						</div>
 
-						<button className="outlineBtn w-full">
+						<button
+							className="outlineBtn w-full"
+							onClick={() => signIn("google")}>
 							<FcGoogle />
 							<span className="text-sm">Signin with google</span>
 						</button>
