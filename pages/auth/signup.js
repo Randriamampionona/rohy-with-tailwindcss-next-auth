@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getSession } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import { FaUserCircle } from "react-icons/fa";
 import { FiLock, FiMail, FiEye, FiEyeOff } from "react-icons/fi";
 import { FcGoogle } from "react-icons/fc";
@@ -9,6 +9,7 @@ const SignupPage = () => {
 	const [inputType, setInputType] = useState("password");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [confirmPassword, setconfirmPassword] = useState("");
 
 	return (
 		<main>
@@ -86,6 +87,33 @@ const SignupPage = () => {
 								</div>
 							</div>
 
+							{/* input confirm password */}
+							<div className="w-full">
+								<label
+									htmlFor="Cpassword"
+									className="text-xs text-lightColor mb-2">
+									Confirm password{" "}
+									<sup className="text-red-600 text-xs">
+										*
+									</sup>
+								</label>
+								<div className="flex items-center space-x-2 bg-whiteColor rounded-sm py-[0.7rem] px-[0.5rem]">
+									<FiLock className="flex-shrink-0 text-lightColor" />
+									<input
+										type="password"
+										name="Cpassword"
+										id="Cpassword"
+										placeholder="Confirm assword"
+										required
+										value={confirmPassword}
+										onChange={(e) =>
+											setconfirmPassword(e.target.value)
+										}
+										className="bg-transparent flex-grow outline-none border-none text-sm placeholder:text-lightColor text-darkColor"
+									/>
+								</div>
+							</div>
+
 							<button className="btn w-full mt-2">
 								<span>Signup</span>
 								<FaUserCircle className="" />
@@ -100,7 +128,9 @@ const SignupPage = () => {
 							<hr className="flex-1 border-lightColor" />
 						</div>
 
-						<button className="outlineBtn w-full">
+						<button
+							className="outlineBtn w-full"
+							onClick={() => signIn("google")}>
 							<FcGoogle />
 							<span className="text-sm">Signup with google</span>
 						</button>

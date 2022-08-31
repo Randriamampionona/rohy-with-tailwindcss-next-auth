@@ -7,15 +7,14 @@ const firebaseConfig = {
 	appId: process.env.FIREBASE_APP_ID,
 	authDomain: process.env.FIREBASE_AUTH_DOMAIN,
 	databaseURL: process.env.FIREBASE_DATABASE_URL,
-	projectId: process.env.FIREBASE_PROJECT_ID,
+	projectId: process.env.FIREBASE_PROJECT_ID || "rohy-v2-test-mode",
 	storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
 	messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
 };
 
 const app = getApps.length > 0 ? getApp() : initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-const db = getFirestore();
-
-const storage = getStorage();
-
-export { app, db, storage };
+export default app;
+export { db, storage };

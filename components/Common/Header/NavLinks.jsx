@@ -23,6 +23,10 @@ NavLinks.defaultProps = {
 			slug: "/offers",
 		},
 		{
+			text: "Movies",
+			slug: "/movie",
+		},
+		{
 			text: "Applications",
 			slug: "/apps",
 		},

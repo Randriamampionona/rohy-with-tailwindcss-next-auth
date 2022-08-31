@@ -20,7 +20,7 @@ const MobileMenu = ({ navLinksData, isOpen, setIsOpen }) => {
 
 	return (
 		<aside
-			className={`z-10 fixed inset-0 bg-darkColor md:hidden transition-transform ease-in flex flex-col items-center w-[55%] sm:w-[45%] h-full shadow-lg ${
+			className={`z-10 fixed inset-0 bg-darkColor md:hidden transition-transform ease-in flex flex-col items-center w-[65%] sm:w-[50%] h-full shadow-lg ${
 				isOpen ? "translate-x-0" : "translate-x-[-100%]"
 			}`}>
 			<div className="flex items-center justify-between w-full h-16 px-2 border-b-[0.5px] border-[#ffffff26]">
